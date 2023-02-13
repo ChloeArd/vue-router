@@ -5,7 +5,10 @@
           <router-link
             v-for="menu in menus"
             :key="menu.id"
-            :to="menu.slug"
+            :to="{
+              name: 'menu.show',
+              params: {id: menu.id, slug: menu.slug}
+            }"
           >
             <div class="col">
               <div class="card shadow-sm">

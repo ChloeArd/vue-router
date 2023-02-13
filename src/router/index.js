@@ -26,9 +26,16 @@ const routes = [
         component: BurgerKingView
     },
     {
-        path: "/menu/:id",
-        name: "menu",
-        component: () => import('../views/MenuView.vue') // permet de charger le js uniquemement a celui la, permet de charger plus rapidement les pages
+        path: "/menu/:id/:slug",
+        name: "menu.show",
+        component: () => import('@/views/MenuView.vue'), // permet de charger le js uniquemement a celui la, permet de charger plus rapidement les pages
+        props: route => ({id: parseInt(route.params.id)})
+    },
+    {
+        path: "/ingredient/:id/:slug",
+        name: "ingredient.show",
+        component: () => import('@/views/IngredientView.vue'),
+        props: route => ({id: parseInt(route.params.id), slug: route.params.slug})
     },
 ];
 
